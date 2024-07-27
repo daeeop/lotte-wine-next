@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+  @include column-flexbox(center, center);
+  row-gap: 24px;
+  color: $color-white-line;
+
+  @include mobile {
+    padding: 0 24px;
+    row-gap: 16px;
+  }
+
+  > img {
+    z-index: -1;
+    object-position: center center;
+  }
+
+  .popup {
+    width: 640px;
+    height: 420px;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-color: transparentize($color: $color-bg, $amount: 0.2);
+    @include column-flexbox(center, center);
+
+    position: relative;
+    text-align: center;
+
+    @include mobile {
+      width: 100%;
+      height: 334px;
+    }
+
+    .popup_title {
+      @include b-36;
+
+      @include mobile {
+        @include b-28;
+      }
+    }
+
+    .popup_logo_zone {
+      margin-bottom: 48px;
+      width: 228.51px;
+      height: 44px;
+
+      @include mobile {
+        margin-bottom: 40px;
+        width: 162.5px;
+        height: 32px;
+      }
+    }
+
+    .popup_btn_zone {
+      display: flex;
+      column-gap: 36px;
+      margin-top: 36px;
+
+      @include mobile {
+        margin-top: 16px;
+        line-height: 86px;
+      }
+
+      > p {
+        cursor: pointer;
+      }
+
+      .popup_btn {
+        @include sb-60;
+        color: $color-white-line;
+
+        @include mobile {
+          @include sb-40;
+        }
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      .popup_hypen {
+        @extend .popup_btn;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .description {
+    .text {
+      @include m-14;
+    }
+  }
+}

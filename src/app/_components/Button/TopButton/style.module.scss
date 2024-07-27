@@ -1,0 +1,28 @@
+.topBtnContainer {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  position: fixed;
+  cursor: pointer;
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  z-index: $higher-layer-zIndex;
+  background-color: $primary-color;
+  color: $color-white;
+  @include column-flexbox();
+  row-gap: 6px;
+
+  > p {
+    @include b-12;
+  }
+
+  > svg {
+    fill: $color-white;
+  }
+
+  @include mobile {
+    right: 20px;
+    bottom: 20px;
+  }
+}

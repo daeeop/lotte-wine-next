@@ -1,0 +1,86 @@
+.buyingShopDetailsWrapper {
+  padding-bottom: 180px;
+  padding-top: 120px;
+  @include column-flexbox(start, start);
+  row-gap: 40px;
+
+  .buyingShopPublicInfo {
+    @include flexbox(start, space-between);
+    width: 100%;
+    column-gap: 126px;
+    border-bottom: 1px solid $color-gray-line2;
+    padding-bottom: 40px;
+
+    .buyingShopThumbNail {
+      width: 486px;
+      height: 450px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+    }
+
+    .buyingShopInfo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        @include b-36;
+        line-height: 52.13px;
+        color: $color-black-line;
+      }
+
+      .line {
+        height: 1px;
+        background-color: $color-gray-line2;
+      }
+    }
+  }
+
+  .mapArea {
+    @include column-flexbox(start, start);
+    row-gap: 24px;
+    width: 100%;
+
+    h3 {
+      @include b-22;
+    }
+  }
+
+  .trafficInfoArea {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 8px;
+  }
+
+  .buttonArea {
+    width: 100%;
+    margin-top: 80px;
+    @include flexbox();
+  }
+}
+
+@at-root {
+  .textBox {
+    width: 100%;
+    display: flex;
+    column-gap: 43px;
+
+    p {
+      @include r-16;
+      white-space: pre-wrap;
+      word-break: keep-all;
+    }
+
+    p:nth-child(1) {
+      font-weight: 700;
+      color: $color-gray-line;
+      min-width: 60px;
+    }
+  }
+}

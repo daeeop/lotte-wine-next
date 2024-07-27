@@ -1,0 +1,89 @@
+// region Regular Fonts
+@mixin r-14 {
+  @include typography(14px , 400);
+  line-height: 20px;
+}
+
+@mixin r-16 {
+  @include typography(16px , 400);
+}
+
+@mixin r-18 {
+  @include typography(18px , 400);
+}
+
+// region Medium Fonts
+@mixin m-12 {
+  @include typography(12px , 500);
+}
+
+@mixin m-14 {
+  @include typography(14px , 500);
+  line-height: 20px;
+}
+
+@mixin m-20 {
+  @include typography(20px , 500);
+}
+
+@mixin m-36 {
+  @include typography(36px , 500);
+  letter-spacing: -0.04em;
+  line-height: 47px;
+}
+
+// region SemiBold Fonts 
+@mixin sb-20 {
+  @include typography(20px , 600);
+}
+
+@mixin sb-40 {
+  @include typography(40px , 600);
+}
+
+@mixin sb-60 {
+  @include typography(60px , 600);
+}
+
+// region Bold Fonts
+@mixin b-12 {
+  @include typography(12px , 700);
+}
+
+@mixin b-16 {
+  @include typography(16px , 700);
+  line-height: 23.17px
+}
+
+@mixin b-18 {
+  @include typography(18px , 700);
+  line-height: 26.06px
+}
+
+@mixin b-22 {
+  @include typography(22px , 700);
+  letter-spacing: -0.04em;
+  line-height: 31.86px;
+}
+
+@mixin b-30 {
+  @include typography(30px , 700);
+  letter-spacing: -0.04em;
+  line-height: 44px;
+}
+
+@mixin b-36 {
+  @include typography(36px , 700);
+  letter-spacing: -0.04em;
+  line-height: 47px;
+}
+
+@mixin b-28 {
+  @include typography(28px , 700);
+  letter-spacing: -0.04em;
+  line-height: 38px;
+}
+
+@mixin b-60 {
+  @include typography(60px , 700);
+}

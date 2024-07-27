@@ -8,6 +8,12 @@ $flex-map: (
   center: center
 );
 
+
+
+@function _get-flex-value($key) {
+  @return map-get($flex-map, $key);
+}
+
 /** flex row */
 @mixin flexbox($js: center, $ai: center) {
   display: flex;
@@ -39,3 +45,4 @@ $flex-map: (
     @content;
   }
 }
+

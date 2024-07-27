@@ -1,0 +1,75 @@
+.footer {
+  width: 100%;
+  background-color: $color-black-line;
+
+  padding: 40px 0;
+
+  @include mobile {
+    padding: 40px 20px;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1200px;
+    @include flexbox(center, space-between);
+    @include mobile {
+      flex-direction: column;
+      row-gap: 32px;
+    }
+
+    .left_section {
+      @include column-flexbox(start, start);
+      flex-grow: 1;
+      row-gap: 24px;
+
+      .logo_zone {
+        width: 164px;
+        height: 41px;
+
+        @include mobile {
+          width: 128px;
+          height: 32px;
+        }
+      }
+
+      .info_zone {
+        @include column-flexbox(start, start);
+        row-gap: 8px;
+
+        .box {
+          display: flex;
+          column-gap: 16px;
+
+          @include mobile {
+            flex-direction: column;
+            column-gap: 0;
+            row-gap: 12px;
+          }
+        }
+
+        .text {
+          @include m-14;
+          color: $color-gray-line;
+
+          @include mobile {
+            word-break: keep-all;
+            white-space: pre-wrap;
+          }
+        }
+
+        @include mobile {
+          row-gap: 12px;
+        }
+      }
+    }
+
+    .right_section {
+      flex: 1;
+      @include flexbox(end, start);
+
+      @include mobile {
+        @include flexbox();
+      }
+    }
+  }
+}

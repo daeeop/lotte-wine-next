@@ -1,0 +1,40 @@
+.root-container {
+  // min-width: 100dvw;
+  // min-height: 100dvh;
+  user-select: none;
+  scroll-behavior: smooth;
+  
+  @include mobile {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+      scrollbar-width:  0;
+    }
+  }
+
+  .contents-wrapper {
+    max-width: 1200px;
+    min-height: 100dvh;
+    margin : 0 auto;
+    color : $color-black-line;
+  }
+}
+
+* {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  &::placeholder {
+    color: $color-gray-line2;
+  }
+  &::-ms-input-placeholder {
+    color: $color-gray-line2;
+  }
+}

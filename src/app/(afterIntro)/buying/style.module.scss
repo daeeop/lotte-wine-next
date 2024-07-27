@@ -1,0 +1,102 @@
+.buyingShopContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 120px;
+  padding-top: 120px;
+  padding-bottom: 320px;
+
+  @include mobile {
+    padding: 48px 20px 120px 20px;
+    row-gap: 64px;
+  }
+
+  .header {
+    @include column-flexbox();
+    row-gap: 24px;
+
+    @include mobile {
+      row-gap: 16px;
+    }
+
+    .title {
+      color: $color-black-line;
+      @include b-36;
+      line-height: 52.13px;
+
+      @include mobile {
+        @include b-22;
+      }
+    }
+
+    .desc {
+      color: $color-gray-line;
+      line-height: 28px;
+      @include r-16;
+
+      @include mobile {
+        padding: 0 40px;
+        @include r-14;
+        text-align: center;
+        white-space: pre-wrap;
+        word-break: keep-all;
+      }
+    }
+
+    .searchZone {
+      width: 384px;
+      height: 40px;
+      border-width: 0 0 1px 0;
+      border-color: $primary-color;
+      border-style: solid;
+      margin-top: 16px;
+      @include flexbox(start, start);
+
+      @include mobile {
+        width: calc(100% - 126px);
+      }
+
+      form {
+        width: 100%;
+        height: 32px;
+      }
+
+      .searchInput {
+        width: calc(100% - 24px);
+        border: none;
+        @include r-18;
+
+        @include mobile {
+          @include r-16;
+          line-height: 23.17px;
+        }
+      }
+    }
+  }
+
+  .body {
+    @include column-flexbox();
+    row-gap: 64px;
+    width: 100%;
+
+    @include mobile {
+      row-gap: 40px;
+    }
+
+    .tapZone {
+      width: 100%;
+    }
+
+    .contentsZone {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 24px;
+      row-gap: 60px;
+
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 16px;
+        row-gap: 32px;
+      }
+    }
+  }
+}

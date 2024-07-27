@@ -1,0 +1,54 @@
+.cardContainer {
+  @include column-flexbox(center, start);
+  text-align: left;
+
+  .cardImg {
+    width: 384px;
+    height: 320px;
+    border-radius: 16px;
+    position: relative;
+
+    @include mobile {
+      width: 100%;
+      height: 134px;
+    }
+
+    img {
+      border-radius: 16px;
+      height: 100%;
+      width: 100%;
+    }
+
+    &.expanded {
+      height: 374px;
+    }
+  }
+
+  .title {
+    @include b-22;
+    color: $color-black-line;
+    white-space: pre-wrap;
+    word-break: keep-all;
+
+    @include mobile {
+      @include b-18;
+    }
+  }
+
+  .text {
+    @include r-16;
+    color: $color-gray-line;
+    white-space: pre-wrap;
+    word-break: keep-all;
+
+    @include mobile {
+      @include r-14;
+      line-height: 28px;
+    }
+
+    &.bold {
+      font-weight: 700;
+      color: $color-gray-line3;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.header {
+  height: 160px; // 임시
+  background-color: $primary-color;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-white;
+  }
+
+  &.absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
