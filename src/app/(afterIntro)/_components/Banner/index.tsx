@@ -2,22 +2,20 @@
 
 import style from './style.module.scss';
 import cx from 'classnames';
-import { useSelectedLayoutSegment } from 'next/navigation';
+import { useSelectedLayoutSegment, useSearchParams } from 'next/navigation';
 import { getPageBanner } from '@/app/utils/getBanner';
 
-type Props = {
-  pageParam?: { shop: string };
-  long?: boolean;
-};
-
-export default function PageBanner({ pageParam, long }: Props) {
+export default function PageBanner() {
   const segment = useSelectedLayoutSegment();
-  const bannerInfo = getPageBanner(segment);
+
+  const searchParams = useSearchParams();
+
+  const bannerInfo = getPageBanner(segment, searchParams.get('q')!);
 
   if (segment === 'home') return null;
 
   return (
-    <div className={cx(style.bannerContainer, long && style.long)}>
+    <div className={cx(style.bannerContainer, bannerInfo?.long && style.long)}>
       <picture>
         <source
           srcSet={bannerInfo?.mobileImg.src}

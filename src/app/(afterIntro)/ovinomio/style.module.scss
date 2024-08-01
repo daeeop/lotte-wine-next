@@ -1,0 +1,72 @@
+.container {
+  padding-bottom: 180px;
+  .header {
+    height: 794px;
+    transform: translateY(-64px);
+    border: 1px solid rgba($color-black, 0.08);
+    border-radius: 16px;
+    background-color: $color-white;
+  }
+
+  .cardFilpWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+
+    .card {
+      height: 384px;
+      border-radius: 16px;
+      // perspective: 500px;
+      cursor: pointer;
+      position: relative;
+
+      .cardInner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+
+        .cardFront,
+        .cardBack {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          border-radius: 16px;
+          @include flexbox();
+          white-space: pre-wrap;
+
+          .cardText {
+            @include b-36;
+            text-align: center;
+            color: $color-black-line;
+          }
+        }
+
+        .cardFront {
+          background-color: $color-gray-line4;
+          border: 1px solid rgba($color-black, 0.08);
+        }
+
+        .cardBack {
+          background-color: $color-violet;
+          transform: rotateY(180deg);
+
+          .cardText {
+            @include r-16;
+            line-height: 28px;
+            text-align: center;
+            color: $color-white;
+          }
+        }
+      }
+
+      &:hover {
+        .cardInner {
+          transform: rotateY(-180deg);
+        }
+      }
+    }
+  }
+}

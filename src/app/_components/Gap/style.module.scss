@@ -1,11 +1,23 @@
 .gap-8 {
   height: 8px;
+
+  @include mobile {
+    height: 4px;
+  }
 }
 
 .gap-16 {
   height: 16px;
+
+  @include mobile {
+    height: 8px;
+  }
 }
 
 .gap-24 {
   height: 24px;
+
+  @include mobile {
+    height: 12px;
+  }
 }

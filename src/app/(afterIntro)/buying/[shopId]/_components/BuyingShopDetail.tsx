@@ -1,12 +1,13 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { BuyingShopQuery } from '@/app/service';
 import style from './buyingShopDetail.module.scss';
 import Labels from '@/app/(afterIntro)/_components/Labels';
-import Gap from '@/app/_components/Gap';
 import Icons from '@/app/(afterIntro)/_components/Icons';
 import KaKaoMap from '@/app/(afterIntro)/_components/Map';
-import { useRouter } from 'next/navigation';
+import cx from 'classnames';
+import { useMobile } from '@/app/hooks';
 
 type Props = {
   shopId: string;
@@ -15,6 +16,7 @@ type Props = {
 export default function BuyingShopDetail({ shopId }: Props) {
   const { data, isLoading } = BuyingShopQuery.useGetBuyingShopDetails(shopId);
   const router = useRouter();
+  const isMobile = useMobile();
 
   const handleRouter = () => {
     router.back();
@@ -28,49 +30,48 @@ export default function BuyingShopDetail({ shopId }: Props) {
         <div className={style.buyingShopThumbNail}>
           <img src={data?.thumbnail} alt="store-thumbnail" />
         </div>
+
         <div className={style.buyingShopInfo}>
           <Labels text={data?.storeType as string} />
-          <Gap columnGap={16} />
           <h1 className={style.title}>{data?.name}</h1>
-          <Gap columnGap={8} />
           <div className={style.iconArea}>
             <Icons />
           </div>
-          <Gap columnGap={24} />
-          <div className={style.textBox}>
-            <p>주소</p>
-            <p>{data?.mainAddress}</p>
-          </div>
-          <Gap columnGap={8} />
-          <div className={style.textBox}>
-            <p>전화</p>
-            <p>{data?.mobile}</p>
-          </div>
-          <Gap columnGap={8} />
-          <div className={style.textBox}>
-            <p>운영시간</p>
-            <p>{data?.operate}</p>
-          </div>
-          <Gap columnGap={8} />
-          <div className={style.textBox}>
-            <p>휴무일</p>
-            <p>{data?.dayOff}</p>
-          </div>
-          {data?.parking && (
-            <>
-              <Gap columnGap={8} />
-              <div className={style.textBox}>
-                <p>주차시설</p>
-                <p>주차가능 </p>
-              </div>
-            </>
-          )}
-          <Gap columnGap={16} />
-          <div className={style.line} />
-          <Gap columnGap={16} />
-          <div className={style.textBox}>
-            <p>소개</p>
-            <p dangerouslySetInnerHTML={{ __html: data?.content! }} />
+
+          <div className={style.publicInfo}>
+            <div className={style.textBox}>
+              <p>주소</p>
+              <p>{data?.mainAddress}</p>
+            </div>
+
+            <div className={style.textBox}>
+              <p>전화</p>
+              <p>{data?.mobile}</p>
+            </div>
+
+            <div className={style.textBox}>
+              <p>운영시간</p>
+              <p>{data?.operate}</p>
+            </div>
+
+            <div className={style.textBox}>
+              <p>휴무일</p>
+              <p>{data?.dayOff}</p>
+            </div>
+            {data?.parking && (
+              <>
+                <div className={style.textBox}>
+                  <p>주차시설</p>
+                  <p>주차가능 </p>
+                </div>
+              </>
+            )}
+
+            <div className={style.line} />
+            <div className={style.textBox}>
+              <p>소개</p>
+              <p dangerouslySetInnerHTML={{ __html: data?.content! }} />
+            </div>
           </div>
         </div>
       </div>
@@ -82,18 +83,18 @@ export default function BuyingShopDetail({ shopId }: Props) {
           name={data?.name!}
         />
         <div className={style.trafficInfoArea}>
-          <div className={style.textBox}>
+          <div className={cx(style.textBox, style.traffic)}>
             <p>지하철</p>
             <p>{data?.subway}</p>
           </div>
           {data?.bus && (
-            <div className={style.textBox}>
+            <div className={cx(style.textBox, style.traffic)}>
               <p>버스</p>
               <p>{data?.bus}</p>
             </div>
           )}
           {data?.car && (
-            <div className={style.textBox}>
+            <div className={cx(style.textBox, style.traffic)}>
               <p>자차이용</p>
               <p>{data?.car}</p>
             </div>
